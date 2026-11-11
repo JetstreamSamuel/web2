@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab 2</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js" defer></script>
+</head>
+<body>
+<header class="header">
+    <h1>Лабораторная работа 2</h1>
+    <p>ФИО: Беляев Ярослав Игоревич</p>
+    <p>Группа: P3212</p>
+    <p>Вриант: 6662</p>
+</header>
+<main>
+    <div class="layout">
+        <section>
+            <canvas id="plane" width="400" height="400"></canvas>
+        </section>
+        <section>
+            <form id="form" method="post">
+                <fieldset>
+                    <legend>Введите значение X:</legend>
+                    <div class="buttons">
+                        <label><input type="checkbox" name="X" value="-4">-4</label><br>
+                        <label><input type="checkbox" name="X" value="-3">-3</label><br>
+                        <label><input type="checkbox" name="X" value="-2">-2</label><br>
+                        <label><input type="checkbox" name="X" value="-1">-1</label><br>
+                        <label><input type="checkbox" name="X" value="0">0</label><br>
+                        <label><input type="checkbox" name="X" value="1">1</label><br>
+                        <label><input type="checkbox" name="X" value="2">2</label><br>
+                        <label><input type="checkbox" name="X" value="3">3</label><br>
+                        <label><input type="checkbox" name="X" value="4">4</label><br>
+                    </div>
+                </fieldset>
+                <label for="yInput">Введите значение Y {-3 ... 3}:</label>
+                <input id="yInput" type="text" value="0" name="Y" inputmode="number" placeholder="Y" pattern = "[+\-]?[0-9]+([.,][0-9]+)?"><br>
+                <fieldset>
+                    <legend>Введите значение R:</legend>
+                    <div class="buttons">
+                        <label><input type="checkbox" name="R" value="1">1</label><br>
+                        <label><input type="checkbox" name="R" value="1.5">1.5</label><br>
+                        <label><input type="checkbox" name="R" value="2">2</label><br>
+                        <label><input type="checkbox" name="R" value="2.5">2.5</label><br>
+                        <label><input type="checkbox" name="R" value="3">3</label><br>
+                    </div>
+                </fieldset>
+                <input id="submit_button" type="submit" value="Проверить попадание">
+            </form>
+            <p id="message" role = "status"></p>
+            <noscript>Сегодня без JavaScript</noscript>
+        </section>
+    </div>
+    <section>
+        <h1>История попаданий</h1>
+        <button id="clear_button" type="button">Очистить историю</button>
+        <div class="check-table">
+            <table>
+                <thead>
+                <tr>
+                    <th scope="col">X</th>
+                    <th scope="col">Y</th>
+                    <th scope="col">R</th>
+                    <th scope="col">Результат</th>
+                    <th scope="col">Дата и время</th>
+                </tr>
+                </thead>
+                <tbody id="results"></tbody>
+            </table>
+        </div>
+    </section>
+</main>
+</body>
+</html>

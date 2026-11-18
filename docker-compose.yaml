@@ -1,0 +1,13 @@
+services:
+  app:
+    build: .
+
+  web:
+    image: httpd:2.4
+    ports:
+      - "8080:80"
+    volumes:
+      - ./src/main/client:/usr/local/apache2/htdocs:ro
+      - ./httpd.conf:/usr/local/apache2/conf/httpd.conf:ro
+    depends_on:
+      - app

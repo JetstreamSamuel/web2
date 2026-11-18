@@ -35,7 +35,7 @@
                     </div>
                 </fieldset>
                 <label for="yInput">Введите значение Y {-3 ... 3}:</label>
-                <input id="yInput" type="text" value="0" name="Y" inputmode="number" placeholder="Y" pattern = "[+\-]?[0-9]+([.,][0-9]+)?"><br>
+                <input id="yInput" type="text" value="0" name="Y" inputmode="number" placeholder="Y" pattern = "[+\-]?[0-9]+([.,][0-9]+)?" required><br>
                 <fieldset>
                     <legend>Введите значение R:</legend>
                     <div class="buttons">
@@ -64,6 +64,7 @@
                     <th scope="col">R</th>
                     <th scope="col">Результат</th>
                     <th scope="col">Дата и время</th>
+                    <th scope="col">Время обработки, мкс</th>
                 </tr>
                 </thead>
                 <tbody id="results"></tbody>

@@ -31,7 +31,7 @@ public final class Server {
             double r,
             boolean hit,
             String time,
-            long workTime
+            double workTime
     ) {
         String toJson() {
             return "{\"x\":" + x
@@ -48,8 +48,7 @@ public final class Server {
         FCGIInterface fastCGI = new FCGIInterface();
 
         while (fastCGI.FCGIaccept() >= 0) {
-            long start = System.nanoTime();
-
+            HitChecker.isHit(0, 0, 0);
             try {
                 String method = FCGIInterface.request.params.getProperty("REQUEST_METHOD");
 
@@ -107,17 +106,11 @@ public final class Server {
 
                 for (int x : xValues) {
                     for (double r : rValues) {
+                        long pointStart = System.nanoTime();
                         boolean hit = HitChecker.isHit(x, y, r);
-                        long workTime = (System.nanoTime() - start) / 1_000;
+                        double workTime = (System.nanoTime() - pointStart) / 1_000.0;
 
-                        current.add(new Row(
-                                x,
-                                y,
-                                r,
-                                hit,
-                                time,
-                                workTime
-                        ));
+                        current.add(new Row(x, y, r, hit, time, workTime));
                     }
                 }
                 history.addAll(current);
